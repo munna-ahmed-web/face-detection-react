@@ -6,6 +6,8 @@ import axios from "axios";
 const ACCESS_KEY = "d-ZV6gt1AOfsh8DM_EtinbqEmZo__o4FhnArYQSnCtE";
 const API_URL = "https://api.unsplash.com/photos/random";
 
+const liveCamUrl = "http://127.0.0.1:8000/employee/employee/images/";
+
 
 const totalNumber = [1, 2, 3, 4, 5, 6, 7, 8];
 const cameraList = [1, 2, 3, 4, "all"];
@@ -49,27 +51,28 @@ const LivePage = () => {
   //  }, []);
 
 
-   useEffect(() => {
-     // Function to fetch frames from the Django backend
-     const fetchFrames = async () => {
-       try {
-         // Fetch frames from the backend using Axios
-         const response = await axios.get('url');
-         const imageObj = response.data;
-         console.log(imageObj)
-         // Set the frame URL to update the video source
-         setFrameUrl(imageObj);
-       } catch (error) {
-         console.error("Error fetching frames:", error);
-       }
-     };
+  //  useEffect(() => {
+  //    // Function to fetch frames from the Django backend
+  //    const fetchFrames = async () => {
+  //      try {
+  //        // Fetch frames from the backend using Axios
+  //        const response = await axios.get('url');
+  //        const imageObj = response.data;
+  //        const imgArray = imageObj.images;
+  //        const lastImage = imgArray[imgArray.length - 1];
+  //        // Set the frame URL to update the video source
+  //        setFrameUrl(imageObj);
+  //      } catch (error) {
+  //        console.error("Error fetching frames:", error);
+  //      }
+  //    };
 
-     // Fetch frames periodically (adjust interval as needed)
-     const intervalId = setInterval(fetchFrames, 1000);
+  //    // Fetch frames periodically (adjust interval as needed)
+  //    const intervalId = setInterval(fetchFrames, 1000);
 
-     // Clean up interval on component unmount
-     return () => clearInterval(intervalId);
-   }, []);
+  //    // Clean up interval on component unmount
+  //    return () => clearInterval(intervalId);
+  //  }, []);
 
   return (
     <div>
@@ -246,10 +249,10 @@ const LivePage = () => {
                 <div className="camera_single c-1">
                   <p className="c_id">Camera one</p>
                   <img src={frameUrl} alt="Live Video Frame" />
-                  {/* <ReactPlayer
-                    url="https://www.youtube.com/watch?v=LXb3EKWsInQ"
+                  <ReactPlayer
+                    url={liveCamUrl}
                     width="100%"
-                  /> */}
+                  />
                 </div>
                 <div className="camera_single c-2">
                   <p className="c_id">Camera two</p>
