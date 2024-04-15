@@ -8,10 +8,16 @@ import axios from "axios";
 
 // const liveCamUrl = "http://127.0.0.1:8000/employee/employee/images/";
 
+const preLink = "http://localhost:8000/employee/media/";
+
 
 const totalNumber = [1, 2, 3, 4, 5, 6, 7, 8];
 const cameraList = [1, 2, 3, 4, "all"];
 
+function extractFilename(path) {
+  const match = path.match(/[^\\/]+$/);
+  return match ? match[0] : null;
+}
 
 const LivePage = () => {
   const [frameUrl, setFrameUrl] = useState("");
@@ -56,16 +62,13 @@ const LivePage = () => {
      const fetchFrames = async () => {
        try {
          // Fetch frames from the backend using Axios
-         const response = await axios.get(
-           "http://your-django-backend.com/frame-endpoint",
-         );
-         const frame = response.data;
-
-         // Convert frame blob to data URL
-        //  const dataUrl = URL.createObjectURL(frameBlob);
+         const response = await axios.get("http://your-django-backend.com/frame-endpoint");
+         const imageArray = response.data.images;
+         const lastImageUrl = imageArray[imageArray.length - 1];
+         const result = extractFilename(lastImageUrl);
 
          // Set the frame URL to update the video source
-         setFrameUrl(frame);
+         setFrameUrl(`${preLink}${result}/`);
        } catch (error) {
          console.error("Error fetching frames:", error);
        }
