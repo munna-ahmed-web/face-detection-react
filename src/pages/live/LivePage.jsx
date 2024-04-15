@@ -3,10 +3,10 @@ import { useEffect, useState } from 'react';
 import axios from "axios";
 
 
-const ACCESS_KEY = "d-ZV6gt1AOfsh8DM_EtinbqEmZo__o4FhnArYQSnCtE";
-const API_URL = "https://api.unsplash.com/photos/random";
+// const ACCESS_KEY = "d-ZV6gt1AOfsh8DM_EtinbqEmZo__o4FhnArYQSnCtE";
+// const API_URL = "https://api.unsplash.com/photos/random";
 
-const liveCamUrl = "http://127.0.0.1:8000/employee/employee/images/";
+// const liveCamUrl = "http://127.0.0.1:8000/employee/employee/images/";
 
 
 const totalNumber = [1, 2, 3, 4, 5, 6, 7, 8];
@@ -51,17 +51,44 @@ const LivePage = () => {
   //  }, []);
 
 
+   useEffect(() => {
+     // Function to fetch frames from the Django backend
+     const fetchFrames = async () => {
+       try {
+         // Fetch frames from the backend using Axios
+         const response = await axios.get(
+           "http://your-django-backend.com/frame-endpoint",
+         );
+         const frame = response.data;
+
+         // Convert frame blob to data URL
+        //  const dataUrl = URL.createObjectURL(frameBlob);
+
+         // Set the frame URL to update the video source
+         setFrameUrl(frame);
+       } catch (error) {
+         console.error("Error fetching frames:", error);
+       }
+     };
+
+     // Fetch frames periodically (adjust interval as needed)
+     const intervalId = setInterval(fetchFrames, 1000);
+
+     // Clean up interval on component unmount
+     return () => clearInterval(intervalId);
+   }, []);
+
+
   //  useEffect(() => {
   //    // Function to fetch frames from the Django backend
   //    const fetchFrames = async () => {
   //      try {
   //        // Fetch frames from the backend using Axios
-  //        const response = await axios.get('url');
+  //        const response = await axios.get(`${API_URL}?client_id=${ACCESS_KEY}`);
   //        const imageObj = response.data;
-  //        const imgArray = imageObj.images;
-  //        const lastImage = imgArray[imgArray.length - 1];
+  //        const imgUrl = imageObj.urls.small;
   //        // Set the frame URL to update the video source
-  //        setFrameUrl(imageObj);
+  //        setFrameUrl(imgUrl);
   //      } catch (error) {
   //        console.error("Error fetching frames:", error);
   //      }
@@ -249,10 +276,10 @@ const LivePage = () => {
                 <div className="camera_single c-1">
                   <p className="c_id">Camera one</p>
                   <img src={frameUrl} alt="Live Video Frame" />
-                  <ReactPlayer
+                  {/* <ReactPlayer
                     url={liveCamUrl}
                     width="100%"
-                  />
+                  /> */}
                 </div>
                 <div className="camera_single c-2">
                   <p className="c_id">Camera two</p>
