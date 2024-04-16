@@ -64,7 +64,7 @@ const LivePage = () => {
          // Fetch frames from the backend using Axios
          const response = await axios.get("http://your-django-backend.com/frame-endpoint");
          const imageArray = response.data.images;
-         const lastImageUrl = imageArray[imageArray.length - 1];
+         const lastImageUrl = imageArray.length ? imageArray[imageArray.length - 1] : ''
          const result = extractFilename(lastImageUrl);
 
          // Set the frame URL to update the video source
