@@ -1,4 +1,4 @@
-
+import {NavLink } from 'react-router-dom'
 const FooterComponent = () => {
   return (
     <div>
@@ -11,9 +11,16 @@ const FooterComponent = () => {
             <div className="footer_top">
               <div className="footer_top_left">
                 <div className="footer_logo">
-                  <a href="index.html" className="fLogoink">
+                  {/* <a href="index.html" className="fLogoink">
                     Face AI
-                  </a>
+                  </a> */}
+                  <NavLink to={"/"}>
+                    <img
+                      src="../../../src/assets/img/logo/logo.jpg"
+                      alt=""
+                      style={{ width: "250px" }}
+                    />
+                  </NavLink>
                 </div>
                 <p className="short_about">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.

@@ -17,7 +17,8 @@ const HeaderComponent = () => {
               <div className="mobile_icon_main">
                 <div className="mobile_icon_div">
                   <div className="mobile_logo">
-                    <a href="index.html">Face AI</a>
+                    {/* <a href="index.html">Face AI</a> */}
+                    <img src="../../../src/assets/img/logo/logo.jpg" alt="" />
                   </div>
                   <div className="mobile_icon">
                     <button
@@ -36,7 +37,14 @@ const HeaderComponent = () => {
                 </div>
               </div>
               <div className="header_logo">
-                <NavLink href="index.html">Face AI</NavLink>
+                <NavLink href="index.html" style={{textDecoration:'none'}}>
+                  <img
+                    src="../../../src/assets/img/logo/logo.jpg"
+                    alt=""
+                    style={{ width: "11rem", marginRight:'.5rem' }}
+                  />
+                  Face AI
+                </NavLink>
               </div>
 
               {/* this menu is hidden initially and when mobile screen reach it */}
