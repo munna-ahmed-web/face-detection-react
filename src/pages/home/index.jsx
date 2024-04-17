@@ -10,7 +10,8 @@ const Home = () => {
             <div className="slider_left">
               <div className="slider_left_data">
                 <p className="slider_text">
-                  Verify anyone from anywhere in under five second
+                  Innovative Face AI
+                  <p style={{fontSize:'25px'}}>Indentify Real Time Face Efficiently</p>
                 </p>
                 <a href="#" className="btn_blue">
                   <span>Try now</span>

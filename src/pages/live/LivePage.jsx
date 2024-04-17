@@ -296,12 +296,10 @@ const LivePage = () => {
               </div>
 
               {/* <!-- Face Maching --> */}
-              <div className="live_chaking">
-                {/* <!-- Checking Single person --> */}
+              {/* <div className="live_chaking">
                 {totalNumber.map((item) => {
                   return (
                     <div className="single_chaking" key={item + 5}>
-                      {/* <!-- Image form database --> */}
                       <div className="img_database">
                         <img
                           src="../../../src/assets/img/databaseImg/database.jpeg"
@@ -309,8 +307,6 @@ const LivePage = () => {
                           className="database_img"
                         />
                       </div>
-
-                      {/* <!-- person data --> */}
                       <div className="person_data">
                         <div className="person_single_line">
                           <p className="small_text key">Name:</p>
@@ -351,7 +347,6 @@ const LivePage = () => {
                   );
                 })}
                 <div className="single_chaking">
-                  {/* <!-- Image form database --> */}
                   <div className="img_database">
                     <img
                       src="../../../src/assets/img/databaseImg/database.jpeg"
@@ -359,8 +354,6 @@ const LivePage = () => {
                       className="database_img"
                     />
                   </div>
-
-                  {/* <!-- person data --> */}
                   <div className="person_data">
                     <div className="person_single_line">
                       <p className="small_text key">Name:</p>
@@ -393,8 +386,6 @@ const LivePage = () => {
                       </select>
                     </div>
                   </div>
-
-                  {/* <!-- Image form camera --> */}
                   <div className="img_camera">
                     <img
                       src="../../../src/assets/img/liveImg/images.jpeg"
@@ -403,7 +394,7 @@ const LivePage = () => {
                     />
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

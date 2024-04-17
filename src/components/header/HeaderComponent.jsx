@@ -37,13 +37,13 @@ const HeaderComponent = () => {
                 </div>
               </div>
               <div className="header_logo">
-                <NavLink href="index.html" style={{textDecoration:'none'}}>
+                <NavLink to={"/"} style={{ textDecoration: "none" }}>
                   <img
-                    src="../../../src/assets/img/logo/logo.jpg"
+                    src="../../../src/assets/img/logo/logo.png"
                     alt=""
-                    style={{ width: "11rem", marginRight:'.5rem' }}
+                    style={{ width: "12rem", marginRight: ".5rem" }}
                   />
-                  Face AI
+                  {/* <span style={{fontSize:'2rem', marginBottom:'-2px'}}>Face AI</span> */}
                 </NavLink>
               </div>
 

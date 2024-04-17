@@ -497,7 +497,7 @@ img{
     align-items: flex-start;
 }
 .live_footage{
-    width: 70%;
+    width: 100%;
     background: rgba(0, 0, 0, .5);
     
 }
